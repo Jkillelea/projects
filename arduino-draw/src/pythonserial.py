@@ -3,7 +3,7 @@
 import serial
 
 #load from image
-IMGHEIGHT = 
+IMGHEIGHT =
 IMGWIDTH =
 
 #create data structure that will cold coordinates of lines to be drawn, and possibly misc instructions?
@@ -18,4 +18,3 @@ IMGWIDTH =
 serialPort = '/dev/ttyACM0' #user set serial port, default current
 
 s = serial.Serial(port=serialPort, baudrate=9600)
-
