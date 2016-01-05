@@ -1,7 +1,6 @@
-s = [["ham", "swiss"], ["turkey", "cheddar"], ["roast beef", "gruyere"]]
-
-s.each do |subarray|
-  subarray.each do |word|
-    puts word
-  end
-end
+secret_identities = {
+  "The Batman" => "Bruce Wayne",
+  "Superman" => "Clark Kent",
+  "Wonder Woman" => "Diana Prince",
+  "Freakazoid" => "Dexter Douglas"
+}
