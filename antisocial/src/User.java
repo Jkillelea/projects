@@ -1,13 +1,11 @@
-public class User { //each user is an object, which can exchange keys and update their friend list.
-private String myName;
+import java.util.ArrayList
 
-public User(String n){
-myName = n;
-}
+public class User extends MainPersonClass{ //each user is an object, which can exchange keys and update their friend list.
 
-public String whoami(){
-return myName;
-}
+  public User(String n){
+    name = n;
+  }
 
+  
 
 }

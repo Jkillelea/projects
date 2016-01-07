@@ -1,4 +1,4 @@
-public class Friend {
+public class Friend extends MainPersonClass{
 
 private String friendName;
 
