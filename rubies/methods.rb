@@ -1,12 +1,14 @@
-# Define your method below!
-def greeting
-  puts "greetings!"
+def alphabetize(arr, rev=false)
+  arr.sort!
+
+  if rev == true
+    arr.reverse!
+  end
+
+return arr
 end
 
 
+numbers = [11, 12, 2323, 4, 1, 5, 98]
 
-
-# Define your method above this line.
-
-greeting # Ignore this for now. We'll explain
-         # it in the next exercise!
+puts alphabetize(numbers)
