@@ -1,3 +1,10 @@
+def show_whole_hash(hash)
+  hash.each do |key, value|
+    puts "#{key}: #{value}"
+  end
+end
+
+
 movies = {
    "Dr. Strangelove" => 5
 }
@@ -29,30 +36,39 @@ when "add"
 
 when "update"
    puts "Which movie to update?"
-   movies.each do |title, rating|
-     puts title + " : " + rating.to_s
-   end
+
+   show_whole_hash(movies)
 
    to_update = gets.chomp.to_s
 
    if movies[to_update] = nil
      puts "That movie isn't in the system!"
+
    else
      print "enter a new rating : "
      new_rating = gets.chomp
-
      movies[to_update] = new_rating.to_i
    end
 
 
-
 when "display"
-puts "Movies!"
+  show_whole_hash(movies)
+
 
 when "delete"
-puts "Deleted"
+
+  show_whole_hash(movies)
+  puts "Movie to delete: "
+  to_delete = gets.chomp
+
+  if movies[to_delete] != nil
+    movies.delete(to_delete)
+  else
+    puts "Movie isn't in data set! Already deleted?"
+  end
+
 
 else
-puts "Error!"
+  puts "Error!"
 
 end
