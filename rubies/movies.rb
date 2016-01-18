@@ -19,9 +19,10 @@ when "add"
   puts "What rating?"
   rating = gets.chomp.to_i
 
-  if movies[title] = nil
+  if movies[title] = nil #if movie isn't in hash
       movies[title] = rating
-  else
+
+  elsif movies[title] != nil #if movie is already in hash
       puts "this movie has already been entered!"
   end
 
