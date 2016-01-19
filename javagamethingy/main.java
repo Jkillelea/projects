@@ -18,7 +18,7 @@ public class main{
     window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     window.setVisible(true);
 
-    drawingComponent DC = new drawingComponent();
+    drawingComponent DC = new drawingComponent(100, 300, 100, 300); //x, y, width, height.
     window.add(DC);
 
   }
