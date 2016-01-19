@@ -37,8 +37,8 @@ words = [
 ]
 
 
-words.sort!
+words.sort! # "!" saves back into the array it came from
 
-words.each do |word|
+words.each do |word| #is the same as words.each({|word| puts word})
   puts word
 end
