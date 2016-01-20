@@ -51,8 +51,7 @@ when "update"
    end
 
 
-when "display"
-  show_whole_hash(movies)
+when "display" then show_whole_hash(movies)
 
 
 when "delete"
