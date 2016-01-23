@@ -1,4 +1,4 @@
-require_relative "intlength"
+require_relative "intlengthcounter"
 
 counter = IntLengthCounter.new
 POWER = ARGV[0].to_i
