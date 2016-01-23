@@ -66,8 +66,6 @@ when "delete"
     puts "Movie isn't in data set! Already deleted?"
   end
 
-
-else
-  puts "Error!"
+else puts "Error!"
 
 end
