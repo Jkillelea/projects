@@ -22,7 +22,3 @@ class IntLengthCounter
   end
 
 end
-
-counter = IntLengthCounter.new
-
-puts counter.len(gets.chomp.to_i).to_s
