@@ -1,5 +1,5 @@
 class IntLengthCounter
-##returns the length of an int supplied sent through len
+##returns the length of an int or fixnum supplied sent through len
 @length #instance variable for length
 
   def initialize
