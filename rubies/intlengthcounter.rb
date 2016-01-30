@@ -1,3 +1,5 @@
+# DEPRECIATED CLASS - USE MathExtention MODULE INSEAD
+
 class IntLengthCounter
 ##returns the length of an int or fixnum supplied sent through len
 @length #instance variable for length
