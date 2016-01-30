@@ -4,10 +4,6 @@ import java.awt.Rectangle;
 
 public class main{
 
-  public main(){
-    System.out.println("You're not supposed to create instances of this class!");
-  }
-
   public static void main(String[] args) {
 
     System.out.println("Running");
