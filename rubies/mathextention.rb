@@ -14,6 +14,7 @@ module MathExtention
     return num.to_s.length
   end
 
+  # The '*args' thing isn't quite working. Not sure what's up.
   def self.multiply(*args)
     args.each { |x| product = product * x  }
     return product
