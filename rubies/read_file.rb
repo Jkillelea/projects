@@ -6,4 +6,4 @@ File.open(ARGV[0].to_s) do |file|
 
 file.close
 end
-puts "\nfile:: " << ARGV[0]
+puts "\nfile:: #{ARGV[0]}"
