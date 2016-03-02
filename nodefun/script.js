@@ -1,2 +1,2 @@
-fs = require 'fs'
-//I don't know javascript
+var fs = require 'fs';
+//I don't know javascript'
