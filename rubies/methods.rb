@@ -1,4 +1,4 @@
-def alphabetize(arr, rev=false)
+def alphabetize(arr, rev = false)
   arr.sort!
 
   if rev == true

@@ -7,7 +7,7 @@ sample program with ruby gtk3
 require "gtk3"
 
 button = Gtk::Button.new("Test Button")
-button.signal_connect("clicked") do
+button.signal_connect("clicked") do #these signals are specific to their objects. replacing 'clicked' with 'potato,' for example, will not work
   puts "Clicked!"
 end
 
