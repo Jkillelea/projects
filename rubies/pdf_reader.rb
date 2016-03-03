@@ -12,9 +12,11 @@ text_file = File.open("Test_Data/menu", 'w')
 pdf.pages.each do |page|
 
   # prints to command line
-  # puts page.fonts
+  # print page.fonts
+  # print "\n"
   # print page.text
-  # puts page.raw_content
+  # print "\n"
+  # print page.raw_content
 
   # writes to file from above
   text_file.puts(page.text)
