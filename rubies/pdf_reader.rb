@@ -22,4 +22,5 @@ pdf.pages.each do |page|
   text_file.puts(page.text)
 end
 
+
 text_file.close
