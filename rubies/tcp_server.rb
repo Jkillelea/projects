@@ -1,4 +1,5 @@
 # Doesn't work
+# supposed to work with client.rb
 require 'socket'
 
 server = TCPSocket.open('localhost', 1000)
