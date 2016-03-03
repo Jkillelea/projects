@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 #Copyright Jacob Killelea
 # reads pdfs and outputs the text
+# https://github.com/yob/pdf-reader
+# in the gem package manager as 'pdf-reader'
 require 'pdf-reader'
 
 $PDF_PATH = ARGV[0]
