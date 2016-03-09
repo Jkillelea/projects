@@ -1,11 +1,5 @@
-// Nicely written function:
-var calculate = function (number) {
-    var val = number * 10;
-    console.log(val);
+function orangeCost(cost_one_orange) {
+  console.log(cost_one_orange*5);
 };
 
-
-
-function greeting(name) {
-  console.log(name);
-};
+orangeCost(5);
