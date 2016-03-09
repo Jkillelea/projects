@@ -1,5 +1,13 @@
-function orangeCost(cost_one_orange) {
-  console.log(cost_one_orange*5);
+// Define quarter here.
+function quarter(number) {
+  return number/4;
 };
 
-orangeCost(5);
+
+
+
+if (quarter(12) % 3 === 0 ) {
+  console.log("The statement is true");
+} else {
+  console.log("The statement is false");
+}
