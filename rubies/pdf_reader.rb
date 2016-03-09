@@ -7,22 +7,19 @@ require 'pdf-reader'
 
 $PDF_PATH = ARGV[0]
 
-pdf = PDF::Reader.new($PDF_PATH)
 
-text_file = File.open("Test_Data/menu", 'w')
+  pdf = PDF::Reader.new($PDF_PATH)
+  text_file = File.open("Test_Data/menu", 'w')
+  pdf.pages.each do |page|
 
-pdf.pages.each do |page|
+    # prints to command line
+    # puts page.fonts
+    puts page.text
+    # puts page.raw_content
 
-  # prints to command line
-  # print page.fonts
-  # print "\n"
-  # print page.text
-  # print "\n"
-  # print page.raw_content
-
-  # writes to file from above
-  text_file.puts(page.text)
-end
+    # writes to file from above
+    # text_file.print(page.text)
+  end
 
 
 text_file.close

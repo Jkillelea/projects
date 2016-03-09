@@ -8,12 +8,13 @@ Servo servo //declare servo
 
 String gcode = "";
 
-
+// setup method, runs at boot
 void setup(){ //begin Serial, begin to read in gcode
   Serial.begin(9600);
   servo.attach(9);
 }
 
+// loop method, runs continiously
 void loop(){
   if(Serial.available()){
     gcode = Serial.read().toString();

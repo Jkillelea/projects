@@ -1,17 +1,22 @@
 # splits an input file on each new line
 
-file = File.open(ARGV[0].to_s)
+file = File.read(ARGV[0].to_s)
 # File.open() also accepts a block as an argument File.open(){|file| do something}
-while text = file.gets
+# while text = file.gets
 
   # split each line into an array
-  data_arg = text.split("\n")
+  # file = file.split("\n")
+  # file = file.split(",")
+  file = file.split(" ")
 
-  # if that array isn't empty
-  unless data_arg.empty? == true
-    print "#{data_arg} \n"
-  end
+  # # if that array isn't empty
+  # if file.empty?
+  #   puts "#{file}"
+  # end
 
-end
+  # file.compact!
+  print file
 
-file.close
+# end
+
+# file.close
