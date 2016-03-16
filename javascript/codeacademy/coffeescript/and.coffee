@@ -1,10 +1,7 @@
-# // Declare your variables here!
-hungry = true
-foodHere = true
+programming = false
 
-
-eat = () ->
-  if hungry && foodHere
-    return true
+happy = () ->
+  if not programming
+    true
   else
-    return false
+    false
