@@ -5,14 +5,12 @@ switch user
     if 'yes' and 'no'
       console.log 'well now youve done it you have!'
     else
-      # body...
       console.log 'thats odd'
 
   when 'blue! wait no, red!'
     console.log 'you were thrown off the bridge!'
   when 'no'
     if 'no' or 'potato'
-      # body...
       console.log 'Im no longer sure what Im doing'
     console.log 'who does know?'
   else
