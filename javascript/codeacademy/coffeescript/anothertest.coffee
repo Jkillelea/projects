@@ -22,6 +22,7 @@ math =
 # Splats:
 race = (winner, runners...) ->
   print winner, runners
+  return
 
 # Existence:
 alert "I knew it!" if elvis?
