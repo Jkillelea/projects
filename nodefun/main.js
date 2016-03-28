@@ -3,9 +3,15 @@ var PORT, dispatcher, handleRequest, http, server;
 
 http = require('http');
 
-dispatcher = require('dispatcher');
+dispatcher = require('httpdispatcher');
 
-PORT = 8808;
+PORT = process.argv[2];
+
+console.log(PORT);
+
+if (PORT === void 0 || PORT === null) {
+  PORT = 8808;
+}
 
 handleRequest = function(request, response) {
   var error;

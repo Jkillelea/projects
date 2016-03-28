@@ -1,8 +1,16 @@
 # The classic Node.js http server example
 http = require 'http'
-dispatcher = require 'dispatcher'
+dispatcher = require 'httpdispatcher'
 
-PORT = 8808
+# --------------------------------------------------------------------------------------------------
+# define the port that the server will listen on
+PORT = process.argv[2]
+console.log PORT
+
+# development note: this wasn't working for a while, like a long while.
+# It's because the port was in argv[2], and I was in matlab mode or something, trying to start my index at 1
+if PORT is undefined or PORT is null
+  PORT = 8808
 
 # --------------------------------------------------------------------------------------------------
 # function called when somebody reqests something from the server
@@ -15,11 +23,11 @@ handleRequest = (request, response) ->
   return                                   # suppress implicit return
 
 # --------------------------------------------------------------------------------------------------
-# GET /page1 => 'Page One'
+# GET  /page1 => 'Page One'
 # POST /page2 => 'Page Two'
-# GET /page3 => 404
-# GET /resources/images-that-exists.png => Image resource
-# GET /resources/images-that-does-not-exists.png => 404
+# GET  /page3 => 404
+# GET  /resources/images-that-exists.png => Image resource
+# GET  /resources/images-that-does-not-exists.png => 404
 
 # dispatcher behavior for a get request
 dispatcher.onGet("/page1", (req, res) ->   # when page1 is requested, use callback
