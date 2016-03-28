@@ -27,7 +27,7 @@ math = {
 race = function() {
   var runners, winner;
   winner = arguments[0], runners = 2 <= arguments.length ? slice.call(arguments, 1) : [];
-  return print(winner, runners);
+  print(winner, runners);
 };
 
 if (typeof elvis !== "undefined" && elvis !== null) {
