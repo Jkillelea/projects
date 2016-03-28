@@ -1,8 +1,8 @@
 {
   "name": "nodefun",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A test http server from tutorials",
+  "main": "main.js",
   "dependencies": {
     "http": "^0.0.0"
   },
@@ -10,6 +10,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "me",
   "license": "ISC"
 }
