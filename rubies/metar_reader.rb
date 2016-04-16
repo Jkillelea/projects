@@ -1,3 +1,5 @@
+#! /usr/bin/env ruby
+
 require "open-uri"
 require "nokogiri"
 
@@ -8,10 +10,8 @@ format = "xml"
 hoursBeforeNow = 1
 
 
-metar = open("https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=#{dataSource}&requestType=retrieve&format=#{format}&stationString=#{airport}&hoursBeforeNow=#{hoursBeforeNow}")
-
-# translate it into XML
-metar = Nokogiri::XML(metar)
+# get and translate into XML
+metar = Nokogiri::XML(open("https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=#{dataSource}&requestType=retrieve&format=#{format}&stationString=#{airport}&hoursBeforeNow=#{hoursBeforeNow}"))
 
 # get the latest brief
-puts metar.css("METAR").first
+puts metar.search("METAR").first
