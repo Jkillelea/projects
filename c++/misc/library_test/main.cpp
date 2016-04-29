@@ -1,5 +1,5 @@
 #include <iostream>
-#include "lib.h"
+#include "libraries/lib.h"
 
 int main(int argc, char const *argv[]) {
 
