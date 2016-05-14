@@ -1,0 +1,18 @@
+To create your own classes...
+
+need a constructor:
+  string str;          // creates a default string object
+  string str("value"); // creates a string with value "value"
+
+  str[i];              // get the value of the char at i
+  str.at(i);           // same thing
+  str.substr(position, length); // returns the substring, starting at position and having length characters
+  str1 += str2;        // does exactly what you think
+  str.empty();         // true or false
+  str1 == str2         // binary comparison operators work on the string class
+  str.find(string);    // first occurancce of string in str
+
+  string = CString;    // <- legal
+  CString = string;    // <- illegal
+
+  

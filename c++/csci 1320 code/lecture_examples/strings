@@ -1,0 +1,47 @@
+strings ins C++ are based on strings in C
+
+You can either use char arrays, which are built in, or use STRINGS
+
+
+CStrings:
+  Char array, one character per index
+  ends with \0, the null char in the last spot
+  so, -> `char s[10]` can only hold 9 characters, since the LAST SPOT HAS TO BE NULL
+  SHOULD ALWAYS be larger than the largest possible size of the string.
+  "Hi Mom!" takes 7 chars, 6 for the letters, spaces, and punctuation, and one for the null char
+  when a string is declared lke, ->  `char potato[] = "potato"`, its automatically given only enough space for the word, + the null char
+  the null char is nessecary for the string to function like a string. C++ looks for it.
+  IF THE NULL CHAR IS OVERWITTEN, UNPREDICTABLE RESULTS CAN OCCUR
+  Declaration:
+    char potato[] = "hi"; <- legal
+    char potato[3];       <- okay
+    potato = "hi"         <- ILLEGAL!
+
+  pros:
+    no library needed
+    quick and easy
+  cons:
+    works like an array, with that little caveat
+    kinda a pain
+
+  if you want to use higher level functions with strings, they must be imported from libraries. Things like `strcmp()` are not included by default
+  strlen(string) will return the number of non-null, non-empty characters
+  instead of using `cin >> var[]`, `cin.getline(var[], max_chars)` can be used
+  `cin.get(var)` will get only one character
+  `cout.put(char)` will put one char on the screen
+
+
+Starndard Class String:
+  allows for variable type `string`
+
+  #include <string>;
+  string phrase;
+  string potato = "potato";
+  string var("value");
+  string1 = string2 + string3;
+
+  allows for all the nice abstraction youd expect
+  allows for new values to be easily assigned
+
+  getline(cin, var);      // stores a val from cin in var
+  getline(cin, var, "?"); // gets input until it finds a "?"
