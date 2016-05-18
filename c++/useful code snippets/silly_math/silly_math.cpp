@@ -10,3 +10,13 @@ int array_to_byte(int array[], int length){
   }
   return out_byte;
 }
+
+void number_to_byte_array(int number, int output_array[]){
+  // make decimal into a binary array.
+  int counter = 0;
+  while (number != 0) {
+    output_array[7 - counter] = number % 2;
+    number /= 2;
+    counter++;
+  }
+}
