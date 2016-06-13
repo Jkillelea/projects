@@ -12,16 +12,16 @@ format     = "xml"
 hoursBeforeNow = 1
 
 
-begin
+def get_metar(airport, dataSource, format, hoursBeforeNow)
   # get and translate into XML
-  metar = Nokogiri::XML(open("https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=#{dataSource}&requestType=retrieve&format=#{format}&stationString=#{airport}&hoursBeforeNow=#{hoursBeforeNow}"))
+  metar = Nokogiri::XML(open("https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=#{dataSource}&requestType=retrieve&format=#{format}&stationString=#{airport.upcase}&hoursBeforeNow=#{hoursBeforeNow}"))
 
-  # # get the latest brief
-  # metar.search("METAR").each do |e|
-  #   puts e
-  # end
+  if block_given?
+    yield metar
+  end
+end
+
+
+get_metar(airport, dataSource, format, hoursBeforeNow) do |metar|
   puts metar.search("METAR raw_text").first
-
-rescue
-  puts "unable to load XML data"
 end
