@@ -18,6 +18,8 @@ def get_metar(airport, dataSource, format, hoursBeforeNow)
 
   if block_given?
     yield metar
+  else
+    return metar
   end
 end
 
