@@ -4,7 +4,11 @@ require "open-uri"
 require "nokogiri"
 
 # airport uses ICAO identifier
-airport        = "KPAO"
+unless ARGV.empty?
+  airport = ARGV[0]
+else
+  airport      = "ksfo"
+end
 dataSource     = "metars"
 format         = "xml"
 hoursBeforeNow = 1
@@ -16,6 +20,8 @@ def get_metar(airport, dataSource, format, hoursBeforeNow)
 
   if block_given?
     yield metar
+  else
+    return metar
   end
 end
 
