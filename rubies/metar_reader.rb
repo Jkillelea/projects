@@ -1,12 +1,14 @@
 #! /usr/bin/env ruby
+# Copyright Jacob Killelea, 2016
+# MIT License
 
 require "open-uri"
 require "nokogiri"
 
 # airport uses ICAO identifier
-airport = "KPAO"
+airport    = "KPAO"
 dataSource = "metars"
-format = "xml"
+format     = "xml"
 hoursBeforeNow = 1
 
 
