@@ -1,4 +1,4 @@
-#! /usr/bin/env ruby
+#!/usr/bin/env ruby
 # Copyright Jacob Killelea, 2016
 # MIT License
 
