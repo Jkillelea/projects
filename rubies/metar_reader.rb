@@ -6,7 +6,11 @@ require "open-uri"
 require "nokogiri"
 
 # airport uses ICAO identifier
-airport    = "KPAO"
+unless ARGV.empty?
+  airport  = ARGV[0]
+else
+  airport  = "ksfo"
+end
 dataSource = "metars"
 format     = "xml"
 hoursBeforeNow = 1
