@@ -7,12 +7,12 @@ require "nokogiri"
 
 # airport uses ICAO identifier
 unless ARGV.empty?
-  airport = ARGV[0]
+  airport  = ARGV[0]
 else
-  airport      = "ksfo"
+  airport  = "ksfo"
 end
-dataSource     = "metars"
-format         = "xml"
+dataSource = "metars"
+format     = "xml"
 hoursBeforeNow = 1
 
 
