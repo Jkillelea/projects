@@ -28,6 +28,12 @@ def get_metar(airport, dataSource, format, hoursBeforeNow)
 end
 
 
-get_metar(airport, dataSource, format, hoursBeforeNow) do |metar|
-  puts metar.search("METAR raw_text").first
+metar = get_metar(airport, dataSource, format, hoursBeforeNow)
+
+begin
+  m = metar.search("METAR raw_text").first.text
+  puts m
+
+rescue NoMethodError
+  puts "Airport not publishing weather!"
 end
