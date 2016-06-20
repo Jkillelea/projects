@@ -6,14 +6,14 @@ require "open-uri"
 require "nokogiri"
 
 # airport uses ICAO identifier
-unless ARGV.empty?
-  airport  = ARGV[0]
+if ARGV.empty? # no args given?
+  airport = "ksfo"
 else
-  airport  = "ksfo"
+  airport = ARGV[0]
 end
 dataSource = "metars"
 format     = "xml"
-hoursBeforeNow = 1
+hoursBeforeNow = 1 # Must be at least 1
 
 
 def get_metar(airport, dataSource, format, hoursBeforeNow)
@@ -34,6 +34,6 @@ begin
   m = metar.search("METAR raw_text").first.text
   puts m
 
-rescue NoMethodError
+rescue NoMethodError # metar.text doesn't work on an empty nokogiri object
   puts "Airport not publishing weather!"
 end
