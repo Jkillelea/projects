@@ -9,3 +9,6 @@ struct_test: struct_test.cpp
 clean:
 	rm struct_test
 	rm *.o
+
+assembly:
+	$(COMPILER) -S struct_test.cpp
