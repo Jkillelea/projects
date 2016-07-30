@@ -9,9 +9,9 @@ struct potato {
 
 potato russett; // second way of creating a variable from a struct
 
-void sayTuber(potato potato);
+void sayTuber(potato potato); // prototype
 
-int main(int argc, char const *argv[]) {
+int main(void) {
 
   tuber.name = "tuber";
   tuber.age = 1;
