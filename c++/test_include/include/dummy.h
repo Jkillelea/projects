@@ -5,4 +5,4 @@
 
 void test(void);
 
-#endif /*end of include guard: DUMMY_H*/
+#endif /* end of include guard: DUMMY_H */
