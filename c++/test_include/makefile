@@ -5,11 +5,11 @@ COMPILE_FLAGS=-I$(INCLUDE_DIR) # just says to include the include dir when searc
 
 all : test
 
-clean :
-	rm $(BUILD_DIR)/*.o
+clean : cleanup # calls cleanup first
 	rm test
-	rmdir $(BUILD_DIR)
-	
+cleanup :
+	rm -r $(BUILD_DIR)
+
 # main executable
 test : $(BUILD_DIR)/test.o $(BUILD_DIR)/dummy.o
 	gcc -o $@ $(COMPILE_FLAGS) $(BUILD_DIR)/test.o $(BUILD_DIR)/dummy.o
