@@ -13,5 +13,5 @@ clean:
 test: $(BUILD_DIR)/test.o $(BUILD_DIR)/dummy.o
 	gcc -o $@ $(COMPILE_FLAGS) $(BUILD_DIR)/test.o $(BUILD_DIR)/dummy.o
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c  # each .o file depends on the corresponding .c file in the source directory
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c  # each .o file in the build directory depends on the corresponding .c file in the source directory
 	gcc -o $@ $(COMPILE_FLAGS) -c $^
