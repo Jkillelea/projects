@@ -8,8 +8,9 @@ all : test
 clean : cleanup # calls cleanup first
 	rm test
 cleanup :
-	rm -r $(BUILD_DIR)
-
+	if [ -d $(BUILD_DIR) ]; \
+		then rm -r $(BUILD_DIR); \
+	fi
 # main executable
 test : $(BUILD_DIR)/test.o $(BUILD_DIR)/dummy.o
 	gcc -o $@ $(COMPILE_FLAGS) $(BUILD_DIR)/test.o $(BUILD_DIR)/dummy.o
