@@ -6,7 +6,9 @@ COMPILE_FLAGS=-I$(INCLUDE_DIR) # just says to include the include dir when searc
 all : test
 
 clean : cleanup # calls cleanup first
-	rm test
+	if [ -e test ]; \
+		then rm test; \
+	fi
 cleanup :
 	if [ -d $(BUILD_DIR) ]; \
 		then rm -r $(BUILD_DIR); \
