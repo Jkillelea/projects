@@ -6,11 +6,11 @@ http = require('http');
 PORT = 8808;
 
 handleRequest = function(request, response) {
-  return response.end("It works: path hit = " + request.url);
+  response.end("It works: path hit = " + request.url);
 };
 
 server = http.createServer(handleRequest);
 
 server.listen(PORT, function() {
-  return console.log("Server running on localhost port " + PORT + "...");
+  console.log("Server running on localhost:" + PORT + "...");
 });
