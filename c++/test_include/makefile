@@ -9,10 +9,7 @@ clean : cleanup # calls cleanup first
 	if [ -e test ]; \
 		then rm test; \
 	fi
-cleanup :
-	if [ -d $(BUILD_DIR) ]; \
-		then rm -r $(BUILD_DIR); \
-	fi
+
 # main executable
 test : $(BUILD_DIR)/test.o $(BUILD_DIR)/dummy.o
 	gcc -o $@ $(COMPILE_FLAGS) $(BUILD_DIR)/test.o $(BUILD_DIR)/dummy.o
@@ -22,3 +19,8 @@ $(BUILD_DIR)/%.o : $(SRC_DIR)/%.c  | $(BUILD_DIR) # each .o file in the build di
                                                   # however, if the modification time of the build directory changes, that won't cause all objects to be recompiled
 $(BUILD_DIR) :
 	mkdir $@
+
+cleanup :
+	if [ -d $(BUILD_DIR) ]; \
+		then rm -r $(BUILD_DIR); \
+	fi
