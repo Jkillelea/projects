@@ -2,9 +2,9 @@ module MathExtention
 
 
   def self.pythagorean(*args)
-    square_sum = 0
-    args.each { |arg| square_sum = square_sum + arg**2}
-    return square_sum**(0.5)
+    sum = 0
+    args.each { |arg| sum += (arg)**2}
+    Math.sqrt(sum)
   end
 
  # Returns the number of digits of an int or fixnum, not the logBaseTen value: 10**3 = 1000 and returns 4, not 3
@@ -16,9 +16,13 @@ module MathExtention
 
   # The '*args' thing isn't quite working. Not sure what's up.
   def self.multiply(*args)
-    args.each { |x| product = product * x  }
+    product = 1
+    args.each { |arg| product = product * arg }
     return product
   end
 
+  def self.w_to_j_per_hr(watts)
+    watts*3600.0
+  end
 
 end
