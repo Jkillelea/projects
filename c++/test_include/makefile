@@ -1,4 +1,4 @@
-COMPILER=arm-linux-gnueabihf-gcc
+COMPILER=gcc
 INCLUDE_DIR=include
 SRC_DIR=src
 BUILD_DIR=build
