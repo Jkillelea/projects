@@ -1,13 +1,11 @@
-object1 = new Object()
-object2 = new Object()
-object3 = new Object()
-
-object4 = {
-  name: "another way to create an object"
+anObj = {
+  job: "I'm an object!"
 }
 
-object1.potato = "potato"
+aNumber = 42
 
-object2.bus = "ran over 1 child"
+aString = "I'm a string!"
 
-object3.age = "a billion yeaaaaaaaaaaars"
+console.log typeof anObj
+console.log typeof aNumber
+console.log typeof aString
