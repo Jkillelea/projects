@@ -1,13 +1,16 @@
-all: hello oneint subprograms
+all: hello oneint subprograms command_line
 	make clean
 
 purge:
-	rm -f hello oneint subprograms
+	rm -f hello oneint subprograms command_line
 
 clean:
 	rm *.o *.ali
 
 hello: hello.adb
+	gnatmake $^
+
+command_line: command_line.adb
 	gnatmake $^
 
 subprograms: subprograms.adb
