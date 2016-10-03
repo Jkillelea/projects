@@ -1,3 +1,6 @@
+--Simple program to echo pack whatever args its passed at the command line
+--Worth noting is the tremendous file size of un-optimized Ada code. This example is 32KB when just calling it with `gnatmake command_line.adb`.
+--The source file is only 1KB
 with Ada.Text_IO, Ada.Command_Line, Ada.Strings.Unbounded, Ada.Text_IO.Unbounded_IO;
 use  Ada.Text_IO; --Make available w/o specifying package
 
