@@ -12,7 +12,7 @@ procedure command_line is
     Cur_Argument : SU.Unbounded_String; -- arbitrary and variable length (As opposed to the standard String)
     i            : Integer := 1;
 begin
-    Put_Line(Integer'Image(CL.Argument_Count));
+    Put_Line(Integer'Image(CL.Argument_Count)); -- Cast integer to string like this
 
     --For all the given arguments
     while i <= CL.Argument_Count loop                           --Argument_Count is from Ada.Command_Line
