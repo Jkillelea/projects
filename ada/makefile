@@ -1,4 +1,4 @@
-all: hello oneint subprograms command_line read_and_write_file_line_by_line
+all: hello oneint subprograms command_line read_and_write_file
 	make clean
 
 purge:
@@ -7,7 +7,7 @@ purge:
 	oneint \
 	subprograms \
 	command_line \
-	read_and_write_file_line_by_line
+	read_and_write_file
 
 clean:
 	rm *.o *.ali
@@ -24,5 +24,5 @@ subprograms: subprograms.adb
 oneint: oneint.adb
 	gnatmake $^
 
-read_and_write_file_line_by_line: read_and_write_file_line_by_line.adb
+read_and_write_file: read_and_write_file.adb
 	gnatmake $^

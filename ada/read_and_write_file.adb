@@ -1,6 +1,6 @@
 with Ada.Text_IO ; use Ada.Text_IO;
 -- from https://rosettacode.org/wiki/File_input/output
-procedure Read_And_Write_File_Line_By_Line is
+procedure Read_And_Write_File is
    Input, Output : File_Type;
 begin
    Open (File => Input,
@@ -28,4 +28,4 @@ exception
       if Is_Open(Output) then
          Close (Output);
       end if;
-end Read_And_Write_File_Line_By_Line;
+end Read_And_Write_File;
