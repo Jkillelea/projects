@@ -7,8 +7,8 @@ struct_test: struct_test.cpp
 	$(COMPILER) struct_test.cpp -o $(EXECUTABLE_NAME)
 
 clean:
-	rm struct_test
-	rm *.o
+	rm -f struct_test \
+		  *.o
 
 assembly:
 	$(COMPILER) -S struct_test.cpp
