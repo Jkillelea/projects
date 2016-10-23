@@ -10,7 +10,11 @@ if ARGV.empty? # no args given?
   airport = "ksfo"
 else
   airport = ARGV[0]
+  if airport.length < 4 # prepend a 'k' (ICAO prefix for CONUS) if the airport name is too small
+    airport = "k#{airport}"
+  end
 end
+
 dataSource = "metars"
 format     = "xml"
 hoursBeforeNow = 1 # Must be at least 1
