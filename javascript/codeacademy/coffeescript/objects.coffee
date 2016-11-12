@@ -1,11 +1,14 @@
-anObj = {
-  job: "I'm an object!"
-}
+class Penguin
+  constructor: (name) ->
+    this.name = name
+    this.numLegs = 2
 
-aNumber = 42
+class Emperor
+  constructor: (name) ->
+    this.name = name
 
-aString = "I'm a string!"
+Emperor.prototype = new Penguin
 
-console.log typeof anObj
-console.log typeof aNumber
-console.log typeof aString
+emperor = new Emperor('potooooooooo')
+
+console.log emperor.numLegs
