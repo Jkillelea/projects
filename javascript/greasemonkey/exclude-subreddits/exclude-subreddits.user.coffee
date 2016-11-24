@@ -7,11 +7,12 @@
 // ==/UserScript==`
 'use strict'
 
-
 BANNED_SUBREDDITS = ['The_Donald', 'AdviceAnimals', 'AskReddit', 'cringepics', 'Conservative',
                      'CringeAnarchy', 'EnoughTrumpSpam', 'atheism', 'rage', 'Jokes'
                      `/*put subreddit names here*/`]
+
 contents = document.getElementsByClassName('content')
+
 for content in contents
   divs = content.getElementsByTagName 'div' # each div on the main page
   for div in divs
