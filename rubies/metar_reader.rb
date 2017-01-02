@@ -20,18 +20,17 @@ end
 def get_metar(args)
   # get and translate into XML
   begin
-    url = "https://www.aviationweather.gov/adds/dataserver_current/httpparam
-                  ?dataSource=                 #{args[:dataSource]}
-                  &requestType=retrieve&format=#{args[:format]}
-                  &stationString=              #{args[:airport].upcase}
-                  &hoursBeforeNow=             #{args[:hoursBeforeNow]}"
+    url = "https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=#{args[:dataSource]}
+                                                                            &requestType=retrieve&format=#{args[:format]}
+                                                                            &stationString=#{args[:airport].upcase}
+                                                                            &hoursBeforeNow=#{args[:hoursBeforeNow]}"
 
     for str in ["\n", "\t", " "] # clean up into one long string
-      url.delete! str
+      url.delete!(str)
     end
-
-    xml   = open(url) # make request
+    xml   = open(url)          # make request
     metar = Nokogiri::XML(xml) # translate
+
   rescue SocketError
     STDERR.puts "[ERROR] Failed to connect to internet."
     exit 1
@@ -45,20 +44,20 @@ def get_metar(args)
 end
 
 args = {
-  airport:         airport,
-  dataSource:      "metars",
-  format:          "xml",
-  hoursBeforeNow:  1 # Must be at least 1
+  airport:        airport,
+  dataSource:     "metars",
+  format:         "xml",
+  hoursBeforeNow: 1 # Must be at least 1
 }
 
 metar = get_metar(args)
 data  = metar.children.search('METAR').first
 
 begin
-  data.children.each { |c|
-    next if c.children.empty? || c.name == 'text'
-    name = c.name
-    val  = c.children
+  data.children.each { |child|
+    next if child.children.empty? || child.name == 'text'
+    name = child.name
+    val  = child.children
     puts "#{name}: #{val}"
   }
 rescue NoMethodError
