@@ -35,19 +35,19 @@ require_relative './metar.rb'
 # airport uses ICAO identifier
 if ARGV.empty? # no args given?
   airport = "ksfo"
-  STDERR.puts 'NOTE: No airport code given: returning default (KSFO)'
+  STDERR.puts '[NOTE]: No airport code given: returning default (KSFO)'
 else
   airport = ARGV[0]
 end
 
 args = {
   airport:        airport,
-  # dataSource:     "metars",
+  # data_source:    "metars",
   # format:         "xml",
-  # hoursBeforeNow: 1 # Must be at least 1
+  # hours_before_now: 1 # Must be at least 1
 }
 
-m = Metar.new :airport => airport
+m = Metar.new args
 metar = Nokogiri::XML(m.request)
 
 # metar = get_metar(args)
@@ -61,5 +61,5 @@ begin
     puts "#{name}: #{val}"
   }
 rescue NoMethodError
-  STDERR.puts "it broke\n\n"
+  STDERR.puts "[ERROR]: It broke\n\n"
 end

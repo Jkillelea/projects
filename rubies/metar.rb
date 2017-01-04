@@ -17,14 +17,17 @@ class Metar
 
     # validate input
     if @airport.length < 4
-      STDERR.puts "Airport identifier was less than 4 characters long. Prepending a 'K' (ICAO CONUS) to the airport identifier..."
+      STDERR.puts "[NOTE]: Airport identifier was less than 4 characters long. Prepending a 'K' (ICAO CONUS) to the airport identifier..."
       @airport = "K#{@airport}"
     end
     if @data_source != 'metars'
-      raise "Only metars are supported right now! You tried to request a #{@format}"
+      raise "[ERROR]: Only metars are supported right now! You tried to request a #{@data_source}"
+    end
+    if @format != 'xml'
+      raise "[ERROR]: Only XML is supported right now! You tried to request #{@format}"
     end
     if @hours_before_now < 1
-      raise "You must request data at least 1 hour old. You tried #{@hours_before_now} hour(s)."
+      raise "[ERROR]: You must request data at least 1 hour old. You tried #{@hours_before_now} hour(s)."
     end
 
     @query_string = "https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=#{data_source}&requestType=retrieve&format=#{format}&stationString=#{airport.upcase}&hoursBeforeNow=#{hours_before_now}"
