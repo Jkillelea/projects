@@ -2,7 +2,7 @@ class Metar
   require "open-uri"
   attr_accessor :data_source, :format, :airport, :hours_before_now
 
-  def initialize(opts)
+  def initialize opts
     defaults = {
       data_source:      "metars",
       format:           "xml",
@@ -20,7 +20,7 @@ class Metar
     @query_string = "https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=#{data_source}&requestType=retrieve&format=#{format}&stationString=#{airport.upcase}&hoursBeforeNow=#{hours_before_now}"
   end
 
-  def request(&block)
+  def request &block
     response = open(@query_string) # => StringIO object (use object.gets to read the underlying string)
     if block_given?
       yield response

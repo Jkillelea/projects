@@ -22,15 +22,13 @@ args = {
 }
 
 m = Metar.new args
-metar = Nokogiri::XML(m.request)
-
-data  = metar.css('METAR').first # using css selectors on XML
+metar = Nokogiri::XML(m.request).at_css('METAR') # using css selectors on XML (return the first one)
 
 begin
-  data.children.each { |child|
-    next if child.children.empty? || child.name == 'text'
-    name = child.name
-    val  = child.children
+  metar.children.each { |field|
+    next unless field.respond_to?(:name) && field.name != 'text' && !field.children.empty? # <- has a child which contains the data
+    name = field.name
+    val  = field.content
     puts "#{name}: #{val}"
   }
 rescue NoMethodError
