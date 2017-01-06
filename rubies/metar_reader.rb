@@ -26,7 +26,10 @@ metar = Nokogiri::XML(m.request).at_css('METAR') # using css selectors on XML (r
 
 begin
   metar.children.each { |field|
-    next unless field.respond_to?(:name) && field.name != 'text' && !field.children.empty? # <- has a child which contains the data
+    next unless field.respond_to? :name
+    next if field.children.empty? || # <- has a child which contains the data
+            field.name == 'text'  ||
+            field.name == 'quality_control_flags'
     name = field.name
     val  = field.content
     puts "#{name}: #{val}"
