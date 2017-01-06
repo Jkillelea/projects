@@ -2,7 +2,7 @@ class Metar
   require "open-uri"
   attr_accessor :data_source, :format, :airport, :hours_before_now
 
-  def initialize opts
+  def initialize opts = {}
     defaults = {
       data_source:      "metars",
       format:           "xml",
