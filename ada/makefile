@@ -12,17 +12,5 @@ purge:
 clean:
 	rm *.o *.ali
 
-hello: hello.adb
-	gnatmake $^
-
-command_line: command_line.adb
-	gnatmake $^
-
-subprograms: subprograms.adb
-	gnatmake $^
-
-oneint: oneint.adb
-	gnatmake $^
-
-read_and_write_file: read_and_write_file.adb
+%: %.adb
 	gnatmake $^
