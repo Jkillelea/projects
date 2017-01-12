@@ -18,15 +18,15 @@ package body Persons is
     Ada.Text_IO.Put_Line(To_String(P.Name));
   end Put_Name;
 
+  procedure Put_Age(P : Person) is
+  begin
+    Ada.Text_IO.Put_Line(Integer'Image(P.Age));
+  end Put_Age;
+
   function Age(P : Person) return Integer is
   begin
     return P.Age;
   end Age;
-
-  procedure Age_Is(P: in out Person; A : Integer) is
-  begin
-    P.Age := A;
-  end Age_Is;
 
   function Name(P : Person) return Person_Name is
   begin
