@@ -12,13 +12,9 @@ procedure OneInt is
 
 begin
   index := 23;
-  put("The value of index is");
-  put(index, 3);              -- The default field width is 11 columns
-  new_line;
+  put_line("The value of index is" & Integer'Image(index));
   index := index + 12;
-  put("The value of index is");
-  put(index, 3);
-  new_line;
+  put_line("The value of index is" & Integer'Image(index));
 
 end OneInt;
 
