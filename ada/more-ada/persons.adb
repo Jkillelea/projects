@@ -14,9 +14,8 @@ package body Persons is
   end Create;
 
   procedure Put_Name(P : Person) is
-    tmp : String := To_String(P.Name);
   begin
-    Ada.Text_IO.Put_Line(tmp);
+    Ada.Text_IO.Put_Line(To_String(P.Name));
   end Put_Name;
 
   function Age(P : Person) return Integer is
