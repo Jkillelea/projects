@@ -1,7 +1,7 @@
 all: main
 	$(MAKE) clean
-	
-main: main.adb
+
+main: main.adb persons.adb
 	gnatmake $^
 
 clean:
