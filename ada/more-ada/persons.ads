@@ -7,7 +7,7 @@ package Persons is
     Age  : Integer;
   end record;
 
-  function  Create  (Name : Person_Name; Age : Integer) return Person;
-  procedure Put_Name(This : Person);
-  procedure Put_Age (This : Person);
+  function  Create(Name : Person_Name; Age : Integer) return Person;
+  procedure Put_Name(This : Person'Class);
+  procedure Put_Age(This : Person'Class);
 end Persons;

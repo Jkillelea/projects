@@ -1,20 +1,21 @@
-with Ada.Text_IO;
-with Ada.Strings.Unbounded;
-with Persons;
-use Ada.Text_IO;
-use Ada.Strings.Unbounded;
-use Persons;
+with Ada.Text_IO, Ada.Strings.Unbounded, Ada.Unchecked_Deallocation, Persons;
+use Ada.Text_IO, Persons;
 
 procedure Main is
-  Age  : Integer             := 20;
-  Name : Persons.Person_Name := To_Unbounded_String("Jake");
-  Me   : Persons.Person      := Persons.Create(Name, 20);
+  package US renames Ada.Strings.Unbounded;
+  type Person_ref is access Person;
+
+  Age  : Integer     := 20;
+  Name : Person_Name := US.To_Unbounded_String("Jake");
+  Me   : Person_ref  := new Person'(Name, Age);
+
+  -- need to create a deallocation procedure for this kind of object
+  procedure Free is new Ada.Unchecked_Deallocation(Object => Person,
+                                                          Name => Person_ref);
 begin
-  -- Me.Put_Name;
   Put_Line("Age: " & Integer'Image(Me.Age));
-  --Me.Put_Age;
-  --Me.Age := 21;
-  Put_Line("Name: " & To_String(Me.Name));
-  --Me.Put_Name;
+  Put_Line("Name: " & US.To_String(Me.Name));
+
+  Free(Me); -- deallocate
   -- null; -- Need to have some operation happen in every procedure, even if operation is just a No-op.
 end Main;
