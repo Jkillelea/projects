@@ -13,23 +13,14 @@ package body Persons is
     return tmp;
   end Create;
 
-  procedure Put_Name(P : Person) is
+  procedure Put_Name(This : Person) is
   begin
-    Ada.Text_IO.Put_Line(To_String(P.Name));
+    Ada.Text_IO.Put_Line(To_String(This.Name));
   end Put_Name;
 
-  procedure Put_Age(P : Person) is
+  procedure Put_Age(This : Person) is
   begin
-    Ada.Text_IO.Put_Line(Integer'Image(P.Age));
+    Ada.Text_IO.Put_Line(Integer'Image(This.Age));
   end Put_Age;
 
-  function Age(P : Person) return Integer is
-  begin
-    return P.Age;
-  end Age;
-
-  function Name(P : Person) return Person_Name is
-  begin
-    return P.Name;
-  end Name;
 end Persons;
