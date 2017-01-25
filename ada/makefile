@@ -1,4 +1,4 @@
-all: hello oneint subprograms command_line read_and_write_file
+all: hello oneint subprograms command_line read_and_write_file arrays
 	make clean
 
 purge:
@@ -7,7 +7,8 @@ purge:
 	oneint \
 	subprograms \
 	command_line \
-	read_and_write_file
+	read_and_write_file \
+	arrays
 
 clean:
 	rm *.o *.ali
