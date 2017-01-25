@@ -1,4 +1,4 @@
-with Ada.Text_IO ; use Ada.Text_IO;
+with Ada.Text_IO; use Ada.Text_IO;
 -- from https://rosettacode.org/wiki/File_input/output
 procedure Read_And_Write_File is
    Input, Output : File_Type;
