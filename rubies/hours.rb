@@ -13,8 +13,9 @@ if File.exists? HOURS_FILE
     hours = Hash.new
   end
 else
-  file = File.new HOURS_FILE, 'a+'
   hours = Hash.new
+  file = File.new HOURS_FILE, 'a+'
+  file.close
 end
 
 puts "Start time?"
