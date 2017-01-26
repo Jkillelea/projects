@@ -31,11 +31,11 @@ if hours[TODAY] != nil # if there's already an entry from today, append the new 
   hours[TODAY] = { 'previously today' => hours[TODAY],
                    'start'            => start_time,
                    'end'              => end_time,
-                   'summary'          => summary}
+                   'summary'          => summary }
 else
   hours[TODAY] = { 'start'   => start_time,
                    'end'     => end_time,
-                   'summary' => summary}
+                   'summary' => summary }
 end
 
 # rewrite file with new data
