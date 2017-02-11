@@ -1,5 +1,5 @@
+require "open-uri"
 class Metar
-  require "open-uri"
   attr_reader :data_source, :format, :airport, :hours_before_now
 
   def initialize opts = {}
@@ -31,22 +31,27 @@ class Metar
 
   private
   def validate_inputs
+    error = false
     if @airport.length < 3
-      raise "[ERROR]: Need to be given a 3-letter (FAA) or 4-letter (ICAO) airport code!"
+      response = "[ERROR]: Need to be given a 3-letter (FAA) or 4-letter (ICAO) airport code!"
+      error = true
     end
     if @airport.length < 4
-      STDERR.puts "[NOTE]: Airport identifier was less than 4 characters long. Prepending a 'K' (ICAO CONUS) to the airport identifier..."
+      response = "[NOTE]: Airport identifier was less than 4 characters long. Prepending a 'K' (ICAO CONUS) to the airport identifier..."
       @airport = "K#{@airport}"
     end
     if @data_source != 'metars'
-      raise "[ERROR]: Only metars are supported right now! You tried to request a #{@data_source}"
+      response = "[ERROR]: Only metars are supported right now! You tried to request a #{@data_source}"
+      error = true
     end
     if @format != 'xml'
-      raise "[ERROR]: Only XML is supported right now! You tried to request #{@format}"
+      response = "[ERROR]: Only XML is supported right now! You tried to request #{@format}"
+      error = true
     end
     if @hours_before_now < 1
-      raise "[ERROR]: You must request data at least 1 hour old. You tried #{@hours_before_now} hour(s)."
+      response = "[ERROR]: You must request data at least 1 hour old. You tried #{@hours_before_now} hour(s)."
+      error = true
     end
+    raise response if error
   end
-
 end
