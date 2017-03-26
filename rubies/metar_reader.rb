@@ -23,19 +23,23 @@ args = {
   # hours_before_now: 1 # Must be at least 1
 }
 
-m = Metar.new args # request
+m     = Metar.new args # request
 metar = Nokogiri::XML(m.request).at_css('METAR') # using css selectors on XML (return the first one)
 
-begin
-  metar.children.each { |field|
-    next unless field.respond_to? :name
-    next if field.children.empty? || # <- has a child which contains the data
-            field.name == 'text'  ||
-            field.name == 'quality_control_flags'
-    name = field.name
-    val  = field.content
-    puts "#{name}: #{val}"
-  }
-rescue NoMethodError
-  STDERR.puts "[ERROR]: It broke\n\n"
+if metar.nil?
+  STDERR.puts "[ERROR]: No data returned. Airport not reporting weather?"
+else
+  begin
+    metar.children.each { |field|
+      next unless field.respond_to? :name
+      next if field.children.empty? || # <- has a child which contains the data
+              field.name == 'text'  ||
+              field.name == 'quality_control_flags'
+      name = field.name
+      val  = field.content
+      puts "#{name}: #{val}"
+    }
+  rescue NoMethodError
+    STDERR.puts "[ERROR]: It broke\n\n"
+  end
 end

@@ -1,5 +1,5 @@
-require "open-uri"
 class Metar
+  require "open-uri"
   attr_reader :data_source, :format, :airport, :hours_before_now
 
   def initialize opts = {}
