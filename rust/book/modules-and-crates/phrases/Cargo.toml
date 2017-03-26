@@ -1,0 +1,8 @@
+[package]
+name = "phrases"
+version = "0.1.0"
+authors = ["Jacob Killelea <Jkillelea@protonmail.ch>"]
+
+[dependencies]
+gtk="0.1.1"
+rand="0.3.0"
