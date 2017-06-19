@@ -1,0 +1,9 @@
+[package]
+name = "serde_test"
+version = "0.1.0"
+authors = ["Jacob Killelea <Jkillelea@protonmail.ch>"]
+
+[dependencies]
+serde      = "*"
+serde_yaml = "*"
+serde_derive = "*"
