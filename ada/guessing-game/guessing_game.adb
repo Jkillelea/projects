@@ -16,7 +16,7 @@ begin
 
   Put_Line ("Guess the number...");
 
-  Put_Line ("The number is in the range" & Small_Number'First'Img 
+  Put_Line ("The number is in the range" & Small_Number'First'Img
                                  & " to" & Small_Number'Last'Img);
 
   Game : loop -- this loop has a name
