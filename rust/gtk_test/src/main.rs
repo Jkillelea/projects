@@ -15,9 +15,9 @@ fn main() {
 
     builder.add_from_string(glade_src).unwrap();
 
-    let window:   gtk::Window = builder.get_object("window1").unwrap();
-    let button:   gtk::Button = builder.get_object("button1").unwrap();
-    let image:    gtk::Image  = builder.get_object("image1").unwrap();
+    let window: gtk::Window = builder.get_object("window1").unwrap();
+    let button: gtk::Button = builder.get_object("button1").unwrap();
+    let image:  gtk::Image  = builder.get_object("image1").unwrap();
 
     if let Some(path) = args.next() {
         image.set_from_file(Path::new(&path)); // doesn't yet scale but hey!
