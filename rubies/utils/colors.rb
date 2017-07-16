@@ -12,7 +12,7 @@ module Colors
     gray:    37
   }
 
-  def colorize(text, color)
+  def self.colorize(text, color)
     "\033[#{COLORS[color.to_sym]}m#{text}\033[0m"
   end
 end
