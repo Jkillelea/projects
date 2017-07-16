@@ -1,0 +1,1 @@
+{"rustc":9749998217168482212,"target":12731733060316740437,"profile":14528549471338536373,"local":{"variant":"Precalculated","fields":["0.7.0"]},"features":"None","deps":[["linked-hash-map v0.4.2",1669957025912262123],["num-traits v0.1.37",13266412822445441553],["serde v1.0.4",1805665202409897357],["yaml-rust v0.3.5",6666221479665970066]],"rustflags":[]}

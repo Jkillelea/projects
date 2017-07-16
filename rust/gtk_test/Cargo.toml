@@ -1,0 +1,8 @@
+[package]
+name = "gtk_test"
+version = "0.1.0"
+authors = ["Jacob Killelea <Jkillelea@protonmail.ch>"]
+
+[dependencies]
+gtk = "*"
+gdk-pixbuf = "*"
