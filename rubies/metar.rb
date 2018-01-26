@@ -9,20 +9,25 @@ class Metar
       airport:          "ksfo",
       hours_before_now: 1 # Must be at least 1
     }
-    options = defaults.merge(opts) # values in opts override those in defaults
+    options = defaults.merge opts # values in opts override those in defaults
     @data_source      = options[:data_source]
     @format           = options[:format]
     @airport          = options[:airport]
     @hours_before_now = options[:hours_before_now]
 
-    validate_inputs
+    validate_inputs # check basic things
 
-    @query_string = "https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=#{@data_source}&requestType=retrieve&format=#{@format}&stationString=#{@airport.upcase}&hoursBeforeNow=#{@hours_before_now}"
-    # puts @query_string
+    # build the query
+    uri = URI "https://www.aviationweather.gov/adds/dataserver_current/httpparam"
+    uri.query = "dataSource=#{@data_source}&
+                  requestType=retrieve&format=#{@format}&
+                  stationString=#{airport.upcase}&
+                  hoursBeforeNow=#{@hours_before_now}".delete("\n").delete(" ").delete("\t")
+    @query_string = uri.to_s
   end
 
   def request &block
-    response = open(@query_string) # => StringIO object (use object.gets to read the underlying string)
+    response = open @query_string # => StringIO object (use object.gets to read the underlying string)
     if block_given?
       yield response
     else

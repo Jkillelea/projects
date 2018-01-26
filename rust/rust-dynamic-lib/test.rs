@@ -1,4 +1,4 @@
-#![crate_type = "dylib"]
+#![crate_type = "staticlib"] //  The valid values are rlib, lib, staticlib, and dylib (from stackoverflow)
 
 #[no_mangle]
 pub fn print_test() {
