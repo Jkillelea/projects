@@ -37,7 +37,7 @@ else
               field.name == 'quality_control_flags'
       name = field.name
       val  = field.content
-      puts "#{name}: #{val}"
+      puts "#{Metar::pretty_keys(name)}: #{val}"
     }
   rescue NoMethodError
     STDERR.puts "[ERROR]: It broke\n\n"

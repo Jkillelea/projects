@@ -18,6 +18,7 @@ class Metar
     validate_inputs
 
     @query_string = "https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=#{@data_source}&requestType=retrieve&format=#{@format}&stationString=#{@airport.upcase}&hoursBeforeNow=#{@hours_before_now}"
+    # puts @query_string
   end
 
   def request &block
@@ -27,6 +28,27 @@ class Metar
     else
       return response
     end
+  end
+
+  public
+  def self.pretty_keys(str)
+      pretty_keys = { 'raw_text'              => "Raw Text",
+                      'station_id'            => "Station ID",
+                      'observation_time'      => "Observation Time",
+                      'latitude'              => "Latitude",
+                      'longitude'             => "Longitude",
+                      'temp_c'                => "Temp (C)",
+                      'dewpoint_c'            => "Dewpoint (C)",
+                      'wind_dir_degrees'      => "Wind Direction (deg)",
+                      'wind_speed_kt'         => "Wind Speed (kts)",
+                      'visibility_statute_mi' => "Visibility (mi)",
+                      'altim_in_hg'           => "Altimiter (inHg)",
+                      'sea_level_pressure_mb' => "Sea Level Pressure (mb)",
+                      'wx_string'             => "WX String",
+                      'flight_category'       => "Flight Category",
+                      'metar_type'            => "Metar Type",
+                      'elevation_m'           => "Elevation (m)" }
+    pretty_keys[str]
   end
 
   private
