@@ -52,7 +52,8 @@ class Metar
                       'wx_string'             => "WX String",
                       'flight_category'       => "Flight Category",
                       'metar_type'            => "Metar Type",
-                      'elevation_m'           => "Elevation (m)" }
+                      'elevation_m'           => "Elevation (m)",
+                      'wind_gust_kt'          => "Wind Gust (kt)" }
     pretty_keys[str]
   end
 
