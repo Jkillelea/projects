@@ -4,7 +4,7 @@
 
 require "nokogiri"
 require_relative 'metar.rb'
-require_relative 'utils/colors.rb' # pretty colors
+require_relative 'colors.rb' # pretty colors
 include Colors
 
 # airport uses ICAO identifier
@@ -37,7 +37,11 @@ else
               field.name == 'quality_control_flags'
       name = field.name
       val  = field.content
-      puts "#{Metar::pretty_keys(name)}: #{val}"
+
+      key = Metar::pretty_keys(name)
+      key = key.nil? ? name : Metar::pretty_keys(name)
+
+      puts "#{key}: #{val}"
     }
   rescue NoMethodError
     STDERR.puts "[ERROR]: It broke\n\n"
