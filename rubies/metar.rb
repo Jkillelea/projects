@@ -53,7 +53,10 @@ class Metar
                       'flight_category'       => "Flight Category",
                       'metar_type'            => "Metar Type",
                       'elevation_m'           => "Elevation (m)",
-                      'wind_gust_kt'          => "Wind Gust (kt)" }
+                      'wind_gust_kt'          => "Wind Gust (kt)",
+                      'maxT_c'                => "Max Temp (C)",
+                      'minT_c'                => "Min Temp (C)" }
+
     pretty_keys[str]
   end
 
