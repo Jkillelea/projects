@@ -15,22 +15,18 @@ global _start    ; find the startpoint
 _start:
   push rbp
   mov  rbp, rsp
-  sub  rsp, 8    ; hold rax (64-bit)
-  xor  rax, rax  ; i = 0
+  sub  rsp, 8    ; stack frame (don't actually store anything)
+  mov  rdi, [n]  ; i = *n
 
 loop_start:      ; write out "hello" n times
-  push rax       ; save i
-
   mov rax, 4     ; write
   mov rbx, 1     ; stdout
   mov rcx, hello ; the string
   mov rdx, len   ; its length
   int 0x80       ; syscall
 
-  pop rax        ; restore i
-  inc rax        ; i++
-  cmp rax, [n]   ; if i < n, goto loop_start (square brackets dereference)
-  jl  loop_start
+  dec rdi        ; i--
+  jnz loop_start ; i > 0 => goto loop_start
 
   mov  rbx, 0    ; exit code (no error)
   call exit      ; done
