@@ -3,12 +3,12 @@ with Ada.Real_Time; use Ada.Real_Time;
 
 procedure Tasks is
 
-  task My_Task  -- pre declare
-    with Priority => 0; -- higher priority (max 256)
+  task My_Task           -- pre declare
+    with Priority => 50; -- higher priority (1 to 80ish, proportional)
 
   task body My_Task is
     Wait : constant Time_Span := Milliseconds (100);
-    Next_Time : Time := clock; -- now
+    Next_Time : Time := Clock; -- now
   begin
     loop
       Put_Line ("Task");
@@ -18,7 +18,7 @@ procedure Tasks is
   end My_Task;
 
   Wait : constant Time_Span := Milliseconds (200);
-  Next_Time : Time := clock; -- now
+  Next_Time : Time := Clock; -- now
 begin
   loop
     Put_Line ("Main Loop");
