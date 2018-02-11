@@ -2,8 +2,8 @@
 #include "mex.h"
 
 /* A quick MEX function. To compile:
- * matlab> mex timestwo.c
- * timestwo(12)
+ * <matlab> mex timestwo.c
+ * <matlab> timestwo(12)
  * ans =
  *    24
  */
