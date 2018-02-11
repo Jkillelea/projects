@@ -1,20 +1,27 @@
 #include <stdio.h>
 #include "mex.h"
 
+/* A quick MEX function. To compile:
+ * matlab> mex timestwo.c
+ * timestwo(12)
+ * ans =
+ *    24
+ */
 
 // executable entry point
 void mexFunction( int      nlhs,           // number  of returns
                   mxArray *plhs[],         // pointer to returns (might be empty)
                   int      nrhs,           // number  of inputs
-                  const mxArray *prhs[]) { // pointer to inputs
+                  const mxArray *prhs[]) { // pointer to inputs  (might be empty)
   double *x, *y;
   size_t mrows, ncols;
 
   if(nrhs != 1)
-    mexErrMsgIdAndTxt( "MATLAB:timestwo:invalidNumInputs", "One input required.");
+    mexErrMsgTxt("One argument required.");
 
   mrows = mxGetM(prhs[0]); // number of rows of first arg
   ncols = mxGetN(prhs[0]); // number of cols
+  // printf("m = %llu n = %llu\n", mrows, ncols); // there's a mex printf somewhere
 
   // create output array
   plhs[0] = mxCreateDoubleMatrix((mwSize) mrows, (mwSize) ncols, mxREAL);
@@ -23,5 +30,8 @@ void mexFunction( int      nlhs,           // number  of returns
   x = mxGetPr(prhs[0]);
   y = mxGetPr(plhs[0]);
 
-  y[0] = 2 * x[0];
+
+  for(int i = 0; i < mrows*ncols; i++) {
+    y[i] = 2 * x[i];
+  }
 }
