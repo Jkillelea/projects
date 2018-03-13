@@ -1,0 +1,3 @@
+t = testclass;
+
+t.hello()
