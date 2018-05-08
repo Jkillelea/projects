@@ -9,7 +9,7 @@ run: all
 	LD_LIBRARY_PATH=. ./main
 
 main: main.c libtest.so
-	$(CC) main.c -o $@ -L. -ltest	
+	$(CC) main.c -o $@ -L. -ltest -ldl -lpthread -lgcc_s -lc -lm -lrt
 
 libtest.so: test.rs
 	rustc $^
